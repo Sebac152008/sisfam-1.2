@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "sistfam",
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "hola"
+	}
+}

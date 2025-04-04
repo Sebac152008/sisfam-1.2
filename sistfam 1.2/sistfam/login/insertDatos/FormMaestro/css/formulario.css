@@ -1,0 +1,128 @@
+  /* Estilos generales */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Contenedor principal */
+  .contenedor {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Títulos */
+  h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  /* Estilos de las pestañas */
+  .nav-tabs {
+    border-bottom: 2px solid #007bff;
+    margin-bottom: 20px;
+  }
+
+  .nav-tabs .nav-item .nav-link {
+    color: #007bff;
+    font-weight: bold;
+  }
+
+  .nav-tabs .nav-item .nav-link.active {
+    background-color: #007bff;
+    color: white;
+    border-radius: 6px 6px 0 0;
+  }
+
+  /* Asegura que los inputs estén alineados uno al lado del otro y ocupen el espacio completo */
+  .form-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .form-group .form-control {
+    width: 500px; /* Los inputs ocuparán el 48% del contenedor */
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+  }
+
+  .form-group .form-control:last-child {
+    width: 48%; /* El segundo input también ocupa 48% */
+  }
+
+  /* Se asegura de que el label esté visible y bien posicionado */
+  .form-group label {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+    display: block;
+  }
+
+
+
+
+  /* Estilo para el input al estar en foco */
+  .form-control:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+
+  /* Estilos del botón */
+  .btn-primary {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+
+  /* Estilos para la tabla de consulta */
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  .table th, .table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+
+  .table tr:hover {
+    background-color: #f9f9f9;
+  }
+
+  /* Estilos para las secciones */
+  .tab-content {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }

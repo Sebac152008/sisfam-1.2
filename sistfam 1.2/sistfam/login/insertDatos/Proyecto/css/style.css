@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+nav {
+    background: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px 0px 200px 10px #afafaf;
+    position: sticky;
+    top: 0px;
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+/* Menú principal */
+nav ul {
+    text-align: center;
+}
+
+nav ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 10px;
+    position: relative; /* Necesario para el submenú */
+}
+
+nav ul li a {
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    display: inline-block;
+    padding: 15px;
+    padding-bottom: 5px; /* Espacio para la línea */
+}
+
+/* Línea animada en hover */
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: #333;
+    transition: width 0.4s ease-in-out, left 0.4s ease-in-out;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Submenú oculto por defecto */
+nav ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 10px 0;
+    min-width: 150px;
+}
+
+/* Estilos del submenú */
+nav ul li ul li {
+    display: block;
+    margin: 0;
+}
+
+nav ul li ul li a {
+    display: block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #333;
+    text-align: left;
+}
+
+/* Cambia el color de fondo al pasar el mouse sobre el submenú */
+nav ul li ul li a:hover {
+    background: #f5f5f5;
+}
+
+/* Mostrar el submenú cuando el usuario pasa el mouse */
+nav ul li:hover ul {
+    display: block;
+}
+
+/* Estilos para las imágenes */
+img[alt="Logo del ITFAM"] {
+    width: 200px;
+    padding: 20px 20px;
+}
+
+img[alt="Usuario"] {
+    width: 50px;
+    margin-right: 10px;
+}
+
+/* Espaciado del contenido principal */
+main {
+    margin: 10px;
+    margin-top: 50px;
+}
+
+/* Contenedor de la tabla centrada */
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Estilo para el título */
+h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    color: #1E2A4A; /* Azul oscuro del logo */
+    font-weight: bold;
+}
+
+/* Estilos para la tabla */
+.table {
+    width: 80%;
+    max-width: 800px;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+/* Encabezados con colores del logo */
+.table thead {
+    background: #1E2A4A; /* Azul oscuro */
+    color: white;
+}
+
+.table th, .table td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Alternancia de colores en filas */
+.table tbody tr:nth-child(even) {
+    background: #ffffff; /* Naranja */
+    color: rgb(0, 0, 0);
+}
+
+.table tbody tr:nth-child(odd) {
+    background: #ffffff; /* Amarillo */
+    color: #1E2A4A; /* Azul oscuro */
+}
+
+/* Hover en filas */
+.table tbody tr:hover {
+    background: #bae3f3; /*Celeste*/
+    color: rgb(12, 12, 12);
+}
+
+/* Estilos para el footer*/
+
+footer {
+    background: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+}
+

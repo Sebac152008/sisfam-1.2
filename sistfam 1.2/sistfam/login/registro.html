@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="css/R.css">
+</head>
+<body>
+    <div class="contenedor">
+        <div class="lado-derecho">
+            <h2>Registrarse</h2>
+            <form action="formRegistro.php" method="post">
+            <input type="text" name="Nombre" placeholder="Nombre" required>
+            <input type="text" name="Apellido" placeholder="Apellido" required>
+            <input type="email" name="Email" placeholder="Correo electrónico" required>
+            <input type="tel" name="Teléfono" placeholder="Teléfono" required>
+            <input type="password" name="Contraseña" placeholder="Contraseña" required>
+            <button type="submit" name="save" id="botonRegistro">Registrarse</button>
+            </form>
+        </div>
+        <div class="lado-izquierdo">
+            <img src="img/Logo_New_by_SR-Slogan-removebg-preview.png" alt="Imagen de registro" class="imagen-inicio-sesion">
+            <h2>¿Ya tienes cuenta?</h2>
+            <p>Inicia sesión para acceder al mundo ITFAM</p>
+            <button id="botonIngresar">Iniciar sesión</button>
+        </div>
+    </div>
+    <script src="js/registro.js"></script>
+</body>
+</html>

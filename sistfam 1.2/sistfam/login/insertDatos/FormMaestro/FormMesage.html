@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITFAM | Formulario de Noticias</title>
+    <style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+}
+
+.contenido-del-form{
+    margin: 0px 15px;
+}
+
+form {
+    background: #fff; /* Fondo blanco */
+    max-width: 500px;
+    margin: auto;
+    color: #333; /* Texto oscuro para mejor contraste */
+    padding: 25px;
+    border-radius: 12px; /* Bordes más redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra más suave */
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+
+h2{
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+span{
+    font-size: 18px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-input {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"], select, textarea, input[type="file"] {
+    width: 100%;
+    outline: none;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #333;
+}
+
+input[type="file"]{
+    font-size: 14px;
+}
+
+textarea {
+    resize: none;
+    height: 150px;
+    font-family: sans-serif;
+}
+
+span {
+    line-height: 1.5;
+    text-transform: capitalize;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    font-size: 15px;
+}
+
+input[type="submit"]:hover {
+    background: #45a049;
+    color: #fff;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+
+/* Contenedor de vista previa de la imagen */
+.image-preview-container {
+    margin-top: 10px;
+    display: none; /* Ocultar por defecto */
+    justify-content: center;
+}
+
+#miniatura-preview, #imagen-preview {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.opcion-archivos{
+    color: #919090;
+    font-size: 15px;
+}
+
+select{
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+   <div class="contenido-del-form">
+    <form action="" method="POST" id="myForm">
+        <!-- Titulo del formulario -->
+         <h2>Formulario de noticias</h2>
+        <div class="form-container">
+            <!-- Botón para seleccionar miniatura -->
+            <div class="form-input">
+                <label for="miniatura"><span>Previsualización</span>
+                    <input required type="file" name="miniatura" id="miniatura" accept="image/*">
+                </label>
+                <!-- Contenedor para la vista previa de la miniatura -->
+                <div id="miniatura-preview-container" class="image-preview-container">
+                    <img id="miniatura-preview" src="" alt="Vista previa de la miniatura">
+                </div>
+                <p id="miniatura-error-message" class="error-message">Por favor, selecciona un archivo de imagen válido para la Previsualización.</p>
+            </div>
+            
+            <!-- Título -->
+            <div class="form-input">
+                <label for="titulo"><span>Título</span>
+                    <input required type="text" name="titulo" id="titulo">
+                </label>
+            </div>
+
+            <!-- Botón para seleccionar archivo del contenido -->
+            <div class="form-input">
+                <label for="imagen"><span style="text-transform: initial;">Cargar archivos <span class="opcion-archivos">(Opcional)</span></span>
+                    <input type="file" name="imagen" id="imagen" accept="image/*,video/*,audio/*">
+                </label>
+                <!-- Contenedor para la vista previa del archivo del contenido -->
+                <div id="imagen-preview-container" class="image-preview-container">
+                    <img id="imagen-preview" src="" alt="Vista previa del contenido">
+                </div>
+                <p id="imagen-error-message" class="error-message">Por favor, selecciona un archivo de imagen, video o audio válido.</p>
+            </div>
+
+            <!-- Contenido -->
+            <div class="form-input">
+                <label for="contenido"><span>Contenido</span>
+                    <textarea name="contenido" id="contenido" required maxlength="500"></textarea>
+                </label>
+            </div>
+
+            <!-- ¿A quien va dirigido? -->
+
+            <div class="form-input">
+                <label for="">
+                    <span style="text-transform: initial;">¿A quién va dirigido?</span>
+                    <select name="" id="">
+                        <option value="">Todos</option>
+                        <option value="">Estudiantes</option>
+                        <option value="">Padres</option>
+                        <option value="">Maestros</option>
+                    </select>
+                </label>
+            </div>
+
+            <!-- Publicar -->
+            <div class="form-input">
+                <input type="submit" value="Publicar">
+            </div>
+        </div>
+    </form>
+   </div>    
+    
+    <script>
+        // Vista previa para miniatura
+document.getElementById('miniatura').addEventListener('change', function(event) {
+    const fileInput = event.target;
+    const file = fileInput.files[0]; // Obtener el archivo seleccionado
+
+    const errorMessage = document.getElementById('miniatura-error-message');
+    const imagePreview = document.getElementById('miniatura-preview');
+    const imagePreviewContainer = document.getElementById('miniatura-preview-container');
+
+    // Si no hay archivo seleccionado, no hacemos nada
+    if (!file) {
+        return;
+    }
+
+    // Verificamos si el archivo es una imagen
+    const fileType = file.type.split('/')[0]; // Obtenemos el tipo MIME, y verificamos si es "image"
+    
+    if (fileType !== 'image') {
+        errorMessage.style.display = 'block'; // Mostrar el mensaje de error
+        fileInput.value = ''; // Limpiar el campo de archivo
+        imagePreview.style.display = 'none'; // Ocultar la imagen previa
+        imagePreviewContainer.style.display = 'none'; // Ocultar el contenedor de vista previa
+    } else {
+        errorMessage.style.display = 'none'; // Ocultar el mensaje de error
+
+        // Mostrar la imagen previa
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            imagePreview.src = e.target.result; // Asignar la imagen leída a la vista previa
+            imagePreview.style.display = 'block'; // Mostrar la imagen
+            imagePreviewContainer.style.display = 'block'; // Asegurarse de que el contenedor sea visible
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+// Vista previa para archivo de contenido (imagen, video, audio)
+document.getElementById('imagen').addEventListener('change', function(event) {
+    const fileInput = event.target;
+    const file = fileInput.files[0]; // Obtener el archivo seleccionado
+
+    const errorMessage = document.getElementById('imagen-error-message');
+    const imagePreviewContainer = document.getElementById('imagen-preview-container');
+
+    // Si no hay archivo seleccionado, no hacemos nada
+    if (!file) {
+        return;
+    }
+
+    // Verificamos si el archivo es una imagen, video o audio
+    const fileType = file.type.split('/')[0]; // Obtenemos el tipo MIME, y verificamos si es "image", "video" o "audio"
+    
+    if (fileType !== 'image' && fileType !== 'video' && fileType !== 'audio') {
+        errorMessage.style.display = 'block'; // Mostrar el mensaje de error
+        fileInput.value = ''; // Limpiar el campo de archivo
+        imagePreviewContainer.style.display = 'none'; // Ocultar el contenedor de vista previa
+    } else {
+        errorMessage.style.display = 'none'; // Ocultar el mensaje de error
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            if (fileType === 'image') {
+                const imagePreview = document.getElementById('imagen-preview');
+                imagePreview.src = e.target.result; // Asignar la imagen leída a la vista previa
+                imagePreview.style.display = 'block'; // Mostrar la imagen
+                imagePreviewContainer.style.display = 'block'; // Asegurarse de que el contenedor sea visible
+            } else if (fileType === 'video') {
+                imagePreviewContainer.innerHTML = `<video controls width="100%">
+                                                        <source src="${e.target.result}" type="${file.type}">
+                                                        Tu navegador no soporta este tipo de video.
+                                                    </video>`;
+                imagePreviewContainer.style.display = 'block'; // Asegurarse de que el contenedor sea visible
+            } else if (fileType === 'audio') {
+                imagePreviewContainer.innerHTML = `<audio controls>
+                                                        <source src="${e.target.result}" type="${file.type}">
+                                                        Tu navegador no soporta este tipo de audio.
+                                                    </audio>`;
+                imagePreviewContainer.style.display = 'block'; // Asegurarse de que el contenedor sea visible
+            }
+        };
+        reader.readAsDataURL(file);
+    }
+});
+    </script>
+</body>
+</html>

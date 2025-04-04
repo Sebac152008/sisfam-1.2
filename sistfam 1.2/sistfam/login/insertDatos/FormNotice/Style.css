@@ -1,0 +1,110 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal */
+.contenedor {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Contenedor de formulario */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-input {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Etiquetas */
+label {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+/* Estilos de los inputs */
+input[type="text"], input[type="file"], select, textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+/* Input de tipo file */
+input[type="file"] {
+    font-size: 14px;
+}
+
+/* Estilos para el textarea */
+textarea {
+    resize: none;
+    height: 150px;
+}
+
+/* Estilo para el botón de submit */
+input[type="submit"] {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para el mensaje de error */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+
+/* Contenedor de vista previa de la imagen */
+.image-preview-container {
+    margin-top: 10px;
+    display: none;
+    justify-content: center;
+}
+
+#miniatura-preview, #imagen-preview {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Estilo para el texto dentro de los select */
+select {
+    cursor: pointer;
+}
